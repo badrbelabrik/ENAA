@@ -1,5 +1,10 @@
 const prompt = require("prompt-sync")();
 
+/*
+we have an array of number we should add one to another till we get a negatif number
+we create a loop that check if the element of array is negative, if its negatif we close the loop
+if not we keep adding every element to the total
+*/
 function remplirtable(){
     let tab = [];
     let elements = Number(prompt("Combien d'elements dans le tableau:"));

@@ -1,5 +1,9 @@
 const prompt = require("prompt-sync")();
-
+/*
+first we have an array the program create a new array that contain the original array
+and the reverse of it
+we first create the reverse array then we fusion both of them
+*/
 function remplirtable(){
     let tab = [];
     let elements = Number(prompt("Combien d'elements dans le tableau:"));
