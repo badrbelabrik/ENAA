@@ -61,6 +61,6 @@ function findtaxi(request){
 
 }
 
-let request1 = createreq();
-findtaxi(request1);
-console.log(taxis);
+function timesimulation(){
+    
+}
