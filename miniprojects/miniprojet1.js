@@ -75,7 +75,7 @@ function timesimulation(){
             }
             });
 
-        if(waitingqueue > 0 && taxis.some(item => item.available = true)){
+        if(waitingqueue.length > 0 && taxis.some(item => item.available)){
             let first = waitingqueue.shift();
             findtaxi(first);
         }
