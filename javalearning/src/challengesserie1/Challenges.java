@@ -1,6 +1,7 @@
 package challengesserie1;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Challenges {
     public static void challenge1(){
@@ -72,6 +73,38 @@ public class Challenges {
     }
 
     public static void challenge6(){
-        
+
+        ArrayList<Integer> tab = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 3, 4, 5));
+        int last = tab.get(tab.size() -1);
+        tab.remove(tab.size() -1);
+        tab.add(0, last);
+        System.out.println(tab);
     }
-}
+
+    public static void challenge7(){
+        int[] tab = {2, 3, 2, 5, 3};
+        int [] tab2;
+
+        for (int i=0; i<tab.length; i++){
+            int counter=0;
+            boolean repeated = false;
+            for(int j=0; j<i; j++){
+                if(tab[i] == tab[j]){
+                   repeated = true;
+                   break;
+                    }
+
+                }
+            if(!repeated) {
+                for(int j=0; j<tab.length; j++)
+                    if (tab[i] == tab[j]) {
+                        counter++;
+                    }
+            }
+            System.out.print(tab[i]+ "=" + counter + " ") ;
+            }
+
+        }
+    }
+
+
