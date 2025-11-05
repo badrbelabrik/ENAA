@@ -2,7 +2,7 @@ package challengesserie1;
 
 public class Main {
     public static void main(String[] args) {
-        Challenges c = new Challenges();
-        c.challenge7();
+        Problemsolving c = new Problemsolving();
+        c.challenge3();
     }
 }

@@ -2,6 +2,7 @@ package challengesserie1;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Challenges {
     public static void challenge1(){
@@ -40,7 +41,7 @@ public class Challenges {
         System.out.println("1. Consulter le solde");
         System.out.println("2. Dépôt");
         System.out.println("3. Retrait");
-        System.out.println("4. Quitter");
+        System.out.println("0. Quitter");
         System.out.println("Entrez votre choix :");
         int option = input.nextInt();
 
@@ -105,6 +106,77 @@ public class Challenges {
             }
 
         }
+
+        public static void challenge8(){
+        int [] tab = {2, 6, 1, 4, 5 };
+        Scanner input = new Scanner(System.in);
+        System.out.print("Entrez un cible :");
+        int cible = input.nextInt();
+        for (int i=0; i<tab.length; i++){
+            int somme = 0;
+            for (int j=0; j<tab.length; j++){
+                if(tab[i]+tab[j] == cible){
+                    System.out.println(tab[i] + "," + tab[j]);
+                }
+            }
+        }
+    }
+
+    public static void challenge9(){
+        int [] tab1 = {1, 2, 3, 4};
+        int [] tab2 = {3, 4, 5, 6};
+        for (int i=0; i<tab1.length; i++){
+            for (int j=0; j<tab2.length; j++){
+                if(tab1[i] == tab2[j]){
+                    System.out.print(tab1[i] +" ");
+                }
+            }
+        }
+    }
+
+    public static void challenge10(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the first word :");
+        String word1 = input.nextLine();
+        System.out.print("Enter the second word :");
+        String word2 = input.nextLine();
+        if (word1.length() != word2.length()){
+            System.out.print("Les deux mots ne sont pas des anagrammes.");
+            return;
+        }
+        char [] tab1 = word1.toCharArray();
+        char [] tab2 = word2.toCharArray();
+        Arrays.sort(tab1);
+        Arrays.sort(tab2);
+
+        if(Arrays.equals(tab1, tab2)){
+            System.out.println("Les deux mots sont des anagrammes.");
+        } else {System.out.println("Les deux mots ne sont pas des anagrammes.");}
+    }
+
+    public static void challenge11() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Entrez une phrase :");
+        String phrase = input.nextLine();
+        String[] tab = phrase.split(",");
+        HashMap<String, Integer> count = new HashMap<>();
+        for (String sentence : tab) {
+            sentence = sentence.trim(); // remove extra spaces
+            count.put(sentence, count.getOrDefault(sentence, 0) + 1);
+        }
+        int maxcount = 0;
+        String mostrepeated = null;
+        for(String sentence: count.keySet()){
+            int currentcount = count.get(sentence);
+            if(maxcount < currentcount){
+                maxcount = currentcount;
+                mostrepeated = sentence;
+            }
+        }
+        System.out.println("Mot le plus fréquent est :" +mostrepeated);
+    }
+
+
     }
 
 
