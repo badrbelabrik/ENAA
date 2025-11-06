@@ -176,6 +176,10 @@ public class Challenges {
         System.out.println("Mot le plus fréquent est :" +mostrepeated);
     }
 
+    public static void challenge12() {
+
+    }
+
 
     }
 

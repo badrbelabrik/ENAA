@@ -50,19 +50,23 @@ public class Problemsolving {
         int N = input.nextInt();
         System.out.print("Entrez le nombre de bancs :");
         int M = input.nextInt();
+        int capacite;
         int counter = 1;
-        int plusbank =0;
-
-        for (int i = 1; i <= M; i++) {
-            System.out.println("Banc " + i + ": Étudiant" + counter + ", Étudiant"+ (counter+1));
-            counter += 2;
-            plusbank = i;
-
-
+        capacite = M * 2;
+        if (N > capacite) {
+            System.out.println("Pas de places pour tous les etudiants.");
         }
-        if (N%2 == 1 && N/2<M){
-            System.out.println();
+        for (int i = 1; i <= M && counter <= N; i++) {
+            System.out.print("Banc " + i + ": Étudiant" + counter + ",");
+            if ((counter + 1) <= N) {
+                System.out.println("Étudiant" + (counter + 1));
+            }
+            counter += 2;
+        }
+        if (counter <= N) {
+            for (int i = counter; i <= N; i++) {
+                System.out.println("Étudiant" + i + " ne trouve pas de place.");
+            }
         }
     }
-
 }
