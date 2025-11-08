@@ -1,4 +1,4 @@
-package challengesserie1;
+package Problemsolving;
 import java.util.Scanner;
 
 public class Problemsolving {
@@ -69,4 +69,10 @@ public class Problemsolving {
             }
         }
     }
+
+        public static void main(String[] args) {
+            Problemsolving b = new Problemsolving();
+            b.challenge1();
+        }
+
 }
