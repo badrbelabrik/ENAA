@@ -21,7 +21,11 @@ public class BankAccount {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your withdraw :");
         double withdraw = input.nextDouble();
-        this.balance -= withdraw;
+        if(withdraw>this.balance){
+            System.out.println("insufficiant balance!");
+        } else{
+            this.balance -= withdraw;
+        }
         return this.balance;
     }
     public void displayBalance(){
