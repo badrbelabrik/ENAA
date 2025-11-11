@@ -180,13 +180,10 @@ public class Challenges {
 
     }
 
-
         public static void main(String[] args){
-            challenge6();
+
+        challenge6();
         }
-
-
-
-    }
+}
 
 
