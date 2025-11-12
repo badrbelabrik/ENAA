@@ -28,7 +28,15 @@ public class Main {
                     String nom = input.nextLine();
                     System.out.println("Entrez l'email':");
                     String email = input.nextLine();
-                    Etudiant etu1 = new Etudiant(1,nom,email);
+                    Etudiant etu = new Etudiant(nom,email);
+                    etudiants.add(etu);
+                case 2:
+                    System.out.println("Liste des étudiants :");
+                    for (Etudiant e : etudiants) {
+                        System.out.println("ID: " + e.getStudentId()
+                                + ", Nom: " + e.getNom()
+                                + ", Email: " + e.getEmail());
+                    }
             }
 
         }
