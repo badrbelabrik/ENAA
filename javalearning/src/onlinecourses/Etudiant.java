@@ -15,6 +15,7 @@ public class Etudiant{
     }
     public void afficherCours(){
     }
+    public int getId() {return studentId;}
     public String getNom() {
         return nom;
     }
