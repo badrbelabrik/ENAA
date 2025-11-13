@@ -81,7 +81,7 @@ public class Main {
 
                     if(etudidtrouve != null && coursidtrouve != null){
                         etudidtrouve.inscrire(coursidtrouve);
-                        System.out.println("The student "+studentname+" has been assigned to "+coursname);
+                        System.out.println("The student "+etudidtrouve.getNom()+" has been assigned to "+coursidtrouve.getTitre());
                     }
                     break;
                 case 5:
@@ -109,11 +109,29 @@ public class Main {
                         }
                     }
                     if(courstrouve == null) {System.out.println("There is no cours with such id!!");}
-                    insttrouve.assignerCours(courstrouve);
+                    if(insttrouve != null && courstrouve != null){
+                        insttrouve.assignerCours(courstrouve);
+                        System.out.println("The instructor "+insttrouve.getNom()+" has been assigned to "+courstrouve.getTitre());
+                    }
+
+                    break;
+                case 6:
+                    System.out.print("Entrez l'id du cours:");
+                    int idcours = input.nextInt();
+                    Cours coursstrouve = null;
+                    for(Cours c: cours){
+                        if(c.getId() == idcours){
+                            coursstrouve = c;
+                            break;
+                        }
+                    }
+                    if(coursstrouve == null){
+                        System.out.println("There is no cours with such id!");
+                    } else if (coursstrouve != null){
+                        coursstrouve.afficherDetails();
+                    }
                     break;
             }
-
-
         }
         while(choix!=0);
     }
