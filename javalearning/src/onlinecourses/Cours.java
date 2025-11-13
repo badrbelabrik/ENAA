@@ -2,9 +2,12 @@ package onlinecourses;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Cours{
-    private ArrayList<Etudiant> coursetudiants = new ArrayList<>();
+    private List<Etudiant> coursetudiants = new ArrayList<>();
+    private List<> paiements = new ArrayList<>();
+    private List<> certifications = new ArrayList<>();
     private static int nextId = 1;
     private int coursId;
     private String titre;
@@ -25,11 +28,25 @@ public class Cours{
     public void assignerInstructeur(Instructeur i){
         this.instructeur = i;
     }
-    public ArrayList<Etudiant> getCoursEtudiant() {
-        return coursetudiants;
-    }
     public void afficherDetails(){
-        System.out.println("Cours "+this.coursId+": "+this.titre+" ,"+this.description +" ,have "+coursetudiants.size());
+        System.out.println("Cours "+this.coursId+": "+this.titre+" ,"+this.description +", prof "+this.instructeur.getNom() +" ,have "+coursetudiants.size()+" students");
+    }
+    public void genererCertification(){
+        Scanner input =new Scanner(System.in);
+        System.out.print("Entrez id du cours:");
+        int coursid = input.nextInt();
+        System.out.print("Entrez id d'etudiant:");
+        int etudid = input.nextInt();
+        System.out.print("Entrez id d'etudiant:");
+        int dateobtention = input.nextInt();
+        for (Cours c: cours){
+
+        }
+        Certification certif = new Certification(dateobtention);
+
+    }
+    public void paiement(){
+
     }
     public int getId(){return coursId;}
     public String getTitre(){return titre;}

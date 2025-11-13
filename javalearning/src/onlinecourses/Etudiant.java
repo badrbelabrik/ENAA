@@ -1,6 +1,10 @@
 package onlinecourses;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Etudiant{
+    private List<Cours> etudiantcourses= new ArrayList<>();
     private static int nextId = 1;
     private int studentId;
     private String nom;

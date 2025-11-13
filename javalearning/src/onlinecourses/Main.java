@@ -1,13 +1,12 @@
 package onlinecourses;
 
-import java.rmi.UnexpectedException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static List<Cours> main(String[] args){
         Scanner input = new Scanner(System.in);
         List<Etudiant> etudiants = new ArrayList<>();
         List<Cours> cours = new ArrayList<>();
@@ -26,6 +25,11 @@ public class Main {
             System.out.print("Entrez votre choix :");
             choix = input.nextInt();
             input.nextLine();
+            int idetudrech,idcoursrech,idinstrucrech;
+            Etudiant etudtrouve;
+            Cours courstrouve;
+            Instructeur instrutrouve;
+
             switch(choix){
                 case 1:
                     System.out.print("Entrez le nom:");
@@ -53,82 +57,72 @@ public class Main {
                     break;
                 case 4:
                     System.out.print("Entrez id d'etudiant:");
-                    int idetudrech = input.nextInt();
+                    idetudrech = input.nextInt();
                     System.out.print("Entrez id du cours:");
-                    int idcoursrech = input.nextInt();
-                    Etudiant etudidtrouve = null;
-                    Cours coursidtrouve = null;
-                    String studentname;
-                    String coursname;
+                    idcoursrech = input.nextInt();
+                    etudtrouve = null;
+                    courstrouve = null;
                     for(Etudiant e: etudiants){
                         if(e.getId() == idetudrech){
-                           System.out.println("Student name: "+e.getNom()+" found");
-                           etudidtrouve = e;
-                           studentname = e.getNom();
+                            etudtrouve = e;
                            break;
                         }
                     }
-                    if(etudidtrouve == null) {System.out.println("There is no student with such id!!");}
+                    if(etudtrouve == null) {System.out.println("There is no student with such id!!");}
                     for (Cours c: cours){
                         if(c.getId() == idcoursrech){
-                            System.out.println("Cours: "+c.getTitre()+" found");
-                            coursidtrouve = c;
-                            coursname = c.getTitre();
-                            break;
-                        }
-                    }
-                    if(coursidtrouve == null) {System.out.println("There is no cours with such id!!");}
-
-                    if(etudidtrouve != null && coursidtrouve != null){
-                        etudidtrouve.inscrire(coursidtrouve);
-                        System.out.println("The student "+etudidtrouve.getNom()+" has been assigned to "+coursidtrouve.getTitre());
-                    }
-                    break;
-                case 5:
-                    System.out.print("Entrez l'id d'instructeur :");
-                    int instidrech = input.nextInt();
-                    System.out.print("Entrez l'id du cours :");
-                    int coursidrech = input.nextInt();
-                    Instructeur insttrouve = null;
-                    Cours courstrouve = null;
-
-                    for(Instructeur i: instructeurs){
-                        if(i.getId()==instidrech){
-                            String instructorname = i.getNom();
-                            System.out.println("Instructor name: "+instructorname+" found");
-                            insttrouve = i;
-                            break;
-                        }
-                    } if(insttrouve == null) {System.out.println("There is no instructor with such id!!");}
-                    for (Cours c: cours){
-                        if(c.getId() == coursidrech){
-                            coursname = c.getTitre();
-                            System.out.println("Cours : "+coursname+" found");
                             courstrouve = c;
                             break;
                         }
                     }
-                    if(courstrouve == null) {System.out.println("There is no cours with such id!!");}
-                    if(insttrouve != null && courstrouve != null){
-                        insttrouve.assignerCours(courstrouve);
-                        System.out.println("The instructor "+insttrouve.getNom()+" has been assigned to "+courstrouve.getTitre());
+                    if(courstrouve == null) {System.out.println("There is no cours with this id!!");}
+
+                    if(etudtrouve != null && courstrouve != null){
+                        etudtrouve.inscrire(courstrouve);
+                        System.out.println("The student "+etudtrouve.getNom()+" has been assigned to "+courstrouve.getTitre());
+                    }
+                    break;
+                case 5:
+                    System.out.print("Entrez l'id d'instructeur :");
+                    idinstrucrech = input.nextInt();
+                    System.out.print("Entrez l'id du cours :");
+                    idcoursrech = input.nextInt();
+                    instrutrouve = null;
+                    courstrouve = null;
+
+                    for(Instructeur i: instructeurs){
+                        if(i.getId()==idinstrucrech){
+                            instrutrouve = i;
+                            break;
+                        }
+                    } if(instrutrouve == null) {System.out.println("There is no instructor with this id!!");}
+                    for (Cours c: cours){
+                        if(c.getId() == idcoursrech){
+                            courstrouve = c;
+                            break;
+                        }
+                    }
+                    if(courstrouve == null) {System.out.println("There is no cours with this id!!");}
+                    if(instrutrouve != null && courstrouve != null){
+                        instrutrouve.assignerCours(courstrouve);
+                        System.out.println("The instructor "+instrutrouve.getNom()+" has been assigned to "+courstrouve.getTitre());
                     }
 
                     break;
                 case 6:
                     System.out.print("Entrez l'id du cours:");
-                    int idcours = input.nextInt();
-                    Cours coursstrouve = null;
+                    idcoursrech = input.nextInt();
+                    courstrouve = null;
                     for(Cours c: cours){
-                        if(c.getId() == idcours){
-                            coursstrouve = c;
+                        if(c.getId() == idcoursrech){
+                            courstrouve = c;
                             break;
                         }
                     }
-                    if(coursstrouve == null){
-                        System.out.println("There is no cours with such id!");
-                    } else if (coursstrouve != null){
-                        coursstrouve.afficherDetails();
+                    if(courstrouve == null){
+                        System.out.println("There is no cours with this id!!");
+                    } else if (courstrouve != null){
+                        courstrouve.afficherDetails();
                     }
                     break;
             }
