@@ -13,7 +13,7 @@ public class Cours {
         this.coursId = nextId++;
         this.nom = nom;
     }
-    public void assignEtudiant(Etudiant e){
+    public void ajouterEtudiant(Etudiant e){
         inscrits.add(e);
     }
 }

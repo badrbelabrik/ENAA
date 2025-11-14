@@ -14,8 +14,8 @@ public Etudiant(int etudiantId){
     this.titre = titre;
 }
 
-public void suivreCours(Cours c){
-    c.assignEtudiant(this);
+public void inscrire(Cours c){
+    c.ajouterEtudiant(this);
     coursSuivis.add(c);
 }
 
