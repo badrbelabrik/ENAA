@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static List<Cours> main(String[] args){
+    public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         List<Etudiant> etudiants = new ArrayList<>();
         List<Cours> cours = new ArrayList<>();

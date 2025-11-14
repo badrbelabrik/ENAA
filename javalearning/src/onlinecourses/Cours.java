@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Cours{
     private List<Etudiant> coursetudiants = new ArrayList<>();
-    private List<> paiements = new ArrayList<>();
-    private List<> certifications = new ArrayList<>();
+    private List<Paiement> paiements = new ArrayList<>();
+    private List<Certification> certifications = new ArrayList<>();
     private static int nextId = 1;
     private int coursId;
     private String titre;
@@ -39,12 +39,12 @@ public class Cours{
         int etudid = input.nextInt();
         System.out.print("Entrez id d'etudiant:");
         int dateobtention = input.nextInt();
-        for (Cours c: cours){
-
-        }
-        Certification certif = new Certification(dateobtention);
-
-    }
+//       // for (Cours c: cours){
+//
+//        }
+//        Certification certif = new Certification(dateobtention);
+//
+   }
     public void paiement(){
 
     }
