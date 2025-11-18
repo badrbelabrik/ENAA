@@ -20,7 +20,7 @@ public class Instructeur{
         courses.add(c);
     }
     public void  afficherCours(Cours c){
-        System.out.println("Cours assignés à " + nom + " :");
+        System.out.println("Cours assigné à " + nom + " :");
         for(int i=0; i<courses.size(); i++){
             System.out.println("-"+courses.get(i));
         }

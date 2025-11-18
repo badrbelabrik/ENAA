@@ -1,5 +1,7 @@
 package onlinecourses;
 
+import java.net.StandardSocketOptions;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +14,7 @@ public class Main {
         List<Cours> cours = new ArrayList<>();
         List<Instructeur> instructeurs = new ArrayList<>();
 
+
         int choix;
         do{
             System.out.println("=== Menu Gestion des Cours ===");
@@ -21,7 +24,10 @@ public class Main {
             System.out.println("4. Inscrire un étudiant à un cours");
             System.out.println("5. Assigner un instructeur à un cours");
             System.out.println("6. Afficher les détails d’un cours");
-            System.out.println("7. Quitter");
+            System.out.println("7. Payer pour un cours");
+            System.out.println("8. marque un cours complete pour un etudiant");
+            System.out.println("9. afficher les certifications");
+            System.out.println("0. Quitter");
             System.out.print("Entrez votre choix :");
             choix = input.nextInt();
             input.nextLine();
@@ -29,7 +35,7 @@ public class Main {
             Etudiant etudtrouve;
             Cours courstrouve;
             Instructeur instrutrouve;
-
+            Paiement paiementtrouve;
             switch(choix){
                 case 1:
                     System.out.print("Entrez le nom:");
@@ -52,7 +58,9 @@ public class Main {
                     String courtitre = input.nextLine();
                     System.out.print("Entrez le description:");
                     String courdesc = input.nextLine();
-                    Cours c1 = new Cours(courtitre,courdesc);
+                    System.out.print("Entrez le prix:");
+                    double prixcours = input.nextDouble();
+                    Cours c1 = new Cours(courtitre,courdesc,prixcours);
                     cours.add(c1);
                     break;
                 case 4:
@@ -68,7 +76,7 @@ public class Main {
                            break;
                         }
                     }
-                    if(etudtrouve == null) {System.out.println("There is no student with such id!!");}
+                    if(etudtrouve == null) {System.out.println("There is no student with this id!!");}
                     for (Cours c: cours){
                         if(c.getId() == idcoursrech){
                             courstrouve = c;
@@ -76,8 +84,10 @@ public class Main {
                         }
                     }
                     if(courstrouve == null) {System.out.println("There is no cours with this id!!");}
-
-                    if(etudtrouve != null && courstrouve != null){
+                    if(etudtrouve.getPaiement() == null){
+                        System.out.println("You didnt pay for this course !!!");
+                    }
+                    else if(etudtrouve != null && courstrouve != null){
                         etudtrouve.inscrire(courstrouve);
                         System.out.println("The student "+etudtrouve.getNom()+" has been assigned to "+courstrouve.getTitre());
                     }
@@ -123,6 +133,68 @@ public class Main {
                         System.out.println("There is no cours with this id!!");
                     } else if (courstrouve != null){
                         courstrouve.afficherDetails();
+                    }
+                    break;
+                case 7:
+                    System.out.print("Entrez id d'etudiant:");
+                    idetudrech = input.nextInt();
+                    System.out.print("Entrez id du cours:");
+                    idcoursrech = input.nextInt();
+                    etudtrouve = null;
+                    courstrouve = null;
+                    for(Etudiant e: etudiants){
+                        if(e.getId() == idetudrech){
+                            etudtrouve = e;
+                            break;
+                        }
+                    }
+                    if(etudtrouve == null) {System.out.println("There is no student with this id!!");}
+                    for (Cours c: cours){
+                        if(c.getId() == idcoursrech){
+                            courstrouve = c;
+                            break;
+                        }
+                    }
+                    if(courstrouve == null) {System.out.println("There is no cours with this id!!");}
+                    if(courstrouve != null && etudtrouve != null){
+                        Paiement p1 = new Paiement(courstrouve,true);
+                        p1.assignPrix(courstrouve);
+                        etudtrouve.setPaiement(p1);
+
+
+
+                        System.out.println("Paiement "+p1.getId()+": student "+etudtrouve.getNom()+" for cours "+
+                                courstrouve.getTitre()+" has been done");
+                    }
+                    break;
+                case 8:
+                    System.out.print("Entrez id d'etudiant:");
+                    idetudrech = input.nextInt();
+                    System.out.print("Entrez id du cours:");
+                    idcoursrech = input.nextInt();
+                    etudtrouve = null;
+                    courstrouve = null;
+                    for(Cours c: cours){
+                        if(c.getId()==idcoursrech){
+                            courstrouve =c;
+                            for(Etudiant e: courstrouve.getCoursetudiants()){
+                                if(e.getId()==idetudrech){
+                                    etudtrouve = e;
+                                }
+                            }
+                            if(etudtrouve != null){
+                                etudtrouve.setCourscompleted();
+                                courstrouve.genererCertification();
+                            }
+                        }
+                    }
+                    System.out.println("Etudiant "+etudtrouve.getNom()+" a completer le cours, " +
+                            "Le certificat sera généré automatiquement.");
+                    break;
+                case 9:
+                    for(Cours c: cours){
+                        System.out.println("=== list des certifications du cours "+c.getTitre()+" ===");
+                        c.afficherCertifications();
                     }
                     break;
             }
