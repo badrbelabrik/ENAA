@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Challenge 6 formulaire de connexion</title>
+        <style>
+            .container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .btn{
+                margin:auto;
+            }
+            .form{
+            border: 2px solid black;
+            background: rgb(179, 167, 167);
+            padding: 20px 30px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: left;
+            }
+            .form input{
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            }
+                .btn:hover{
+            background-color: royalblue;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <form class="form">
+             <label>Email</label><br>
+             <input type="text" id="email" name="email"><br>
+             <label>Mot de passe</label><br>
+             <input type="password" id="pwd" name="password"><br>
+             <div style="text-align:left; font-size:12px; margin-bottom:10px; cursor:pointer;">mot de passe oublie?</div><br>
+             <button class="btn">Login</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -33,8 +33,8 @@ app.get('/', (req, res) => {
         };
         res.render('page', { user: userData }); // Render 'index.ejs' and pass 'userData'
     });
-app.get('/badro', (req, res) => {
-    console.log("ch3aaand dimass dimak");   
+app.get('/badr', (req, res) => {
+    console.log("test !!!");   
     const data = {
     message: 'Hello from Node.js!',
     timestamp: new Date().toISOString()

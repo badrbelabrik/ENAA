@@ -23,22 +23,24 @@ public class Compte {
         System.out.println("Entrez le montant pour retirer :");
         double montant = input.nextDouble();
         setSolde(getSolde()-montant);
-
-    }
-
+        System.out.println("Nouveau solde : "+getSolde());
+       };
     public int getNumero() {
-        return numero;
+        return getNumero();
     }
 
     public double getSolde() {
-        return solde;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
+        return getSolde();
     }
 
     public void setSolde(double solde) {
         this.solde = solde;
     }
 }
+
+
+
+
+
+
+

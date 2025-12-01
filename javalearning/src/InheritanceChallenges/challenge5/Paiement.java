@@ -11,8 +11,8 @@ public class Paiement {
     public void effectuerPaiement(double montant){
         System.out.println("Paiement générique de " + montant + " MAD");
     }
-    public void traiterPaiement(Paiement p,double montant){
-        p.effectuerPaiement(montant);
+    public void traiterPaiement(double montant){
+        effectuerPaiement(montant);
     }
 
     public int getNumero() {

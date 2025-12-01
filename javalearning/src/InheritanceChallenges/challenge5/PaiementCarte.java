@@ -8,8 +8,5 @@ public class PaiementCarte extends Paiement{
         System.out.println("Paiement par carte de " + montant + " MAD");
     }
 
-    public void traiterPaiement(){
-
-    }
 
 }

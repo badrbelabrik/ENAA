@@ -1,18 +1,16 @@
 package InheritanceChallenges.challenge5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void  main(String[]args){
-        PaiementCarte p1 = new PaiementCarte();
-        PaiementCarte p2 = new PaiementCarte();
-
-        PaiementVirement p3 = new PaiementVirement();
-        PaiementVirement p4 = new PaiementVirement();
-
-        PaiementCash p5 = new PaiementCash();
-        PaiementCash p6 = new PaiementCash();
-
-        p1.effectuerPaiement(1500);
-        p3.effectuerPaiement(750);
-        p5.effectuerPaiement(670);
+        List<Paiement> paiements = new ArrayList<>();
+        paiements.add(new PaiementCarte());
+        paiements.add(new PaiementCash());
+        paiements.add(new PaiementVirement());
+        for(Paiement p: paiements){
+            p.traiterPaiement(1500);
+        }
     }
 }
