@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(){
+    public static void main(String[]args){
         List<Document>liste = new ArrayList<>();
         liste.add(new PDF());
         liste.add(new Word());
