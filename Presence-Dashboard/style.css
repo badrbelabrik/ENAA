@@ -53,8 +53,9 @@ body {
 #studentsTable {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 16px; /* space between rows */
+    border-spacing: 0 5px; /* space between rows */
     background-color: #08164a;
+    border-radius: 12px;
 }
 
 #studentsTable thead th {
@@ -64,6 +65,8 @@ body {
     padding: 14px;
     border: none;
     font-size: 16px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 #studentsTable tbody tr {
@@ -76,15 +79,15 @@ body {
     border: none;
 }
 
-#studentsTable tbody tr td:first-child {
+/* #studentsTable tbody tr td:first-child {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
-}
+} */
 
-#studentsTable tbody tr td:last-child {
+/* #studentsTable tbody tr td:last-child {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-}
+} */
 
 .badge {
     padding: 6px 14px;
@@ -129,4 +132,18 @@ body {
 
 #studentsTable tbody td {
     background-color: #183862;
+}
+
+.message-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745; /* green for success */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none; /* hidden by default */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: opacity 0.3s ease;
 }
